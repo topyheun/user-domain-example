@@ -1,1 +1,19 @@
+spring:
+  # JPA ??
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
 
+  # MariaDB ??
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/topy?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 5000
+      max-lifetime: 30000
