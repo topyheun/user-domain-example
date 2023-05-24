@@ -13,6 +13,7 @@ public class Const {
      * Domain을 접두사로 사용
      */
     public static final String MEMBER_USED_ACCOUNT = "사용중인 계정입니다.";
+    public static final String MEMBER_INVALID_EMAIL_FORMAT = "올바르지 않은 이메일 양식입니다.";
 
     public static final String MEMBER_DTO_NO_USERNAME = "아이디를 입력해주세요.";
     public static final String MEMBER_DTO_NO_PASSWORD = "비밀번호를 입력해주세요.";
