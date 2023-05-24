@@ -4,7 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import topy.project.common.exception.BadRequestException;
 import topy.project.modules.member.dto.MemberSignUpRequest;
+
+import static topy.project.common.Const.MEMBER_USED_ACCOUNT;
 
 @Service
 @Transactional(readOnly = true)
@@ -17,7 +20,7 @@ public class MemberService {
     @Transactional
     public void createMember(MemberSignUpRequest memberSignUpRequest) {
         if (memberRepository.existsByUsername(memberSignUpRequest.getUsername())) {
-            throw new RuntimeException("이미 존재하는 계정입니다.");
+            throw new BadRequestException(MEMBER_USED_ACCOUNT);
         }
 
         Member member = Member.builder()
