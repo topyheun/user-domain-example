@@ -25,4 +25,14 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "member_type")
     private MemberType memberType;
+
+    @Builder
+    public Member(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public void setEncodePassword(String hashPassword) {
+        this.password = hashPassword;
+    }
 }
