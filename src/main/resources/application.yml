@@ -18,6 +18,12 @@ spring:
       connection-timeout: 5000
       max-lifetime: 30000
 
+  # Redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
 # Jwt
 jwt:
   header: Authorization
