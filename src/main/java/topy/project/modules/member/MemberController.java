@@ -10,6 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import topy.project.common.dto.ResultResponse;
 import topy.project.infra.config.security.jwt.JwtTokenProvider;
+import topy.project.modules.member.dto.MemberEmailVerificationRequest;
 import topy.project.modules.member.dto.MemberSignInRequest;
 import topy.project.modules.member.dto.MemberSignInResponse;
 import topy.project.modules.member.dto.MemberSignUpRequest;
@@ -55,5 +56,11 @@ public class MemberController {
                 .jwtToken(jwtToken)
                 .build();
         return ResultResponse.result(SUCCESS, SUCCESS_MSG, memberSignInResponse);
+    }
+
+    @PostMapping("/member/verify/mail")
+    public ResultResponse sendSignUpVerification(@RequestBody @Valid MemberEmailVerificationRequest memberEmailVerificationRequest) {
+        memberService.sendVerificationCode(memberEmailVerificationRequest);
+        return ResultResponse.result(SUCCESS, SUCCESS_MSG);
     }
 }
