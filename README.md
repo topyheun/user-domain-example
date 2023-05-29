@@ -1,20 +1,20 @@
 ## Introduction
-<U>**Topy's Marketplace**</U> 프로젝트는 물건을 사고 파는 거래 플랫폼입니다.
+The <U>**Topy's Marketplace**</U> is a trading platform where users can buy and sell goods.
 
-저는 이 프로젝트를 통해 아래와 같은 기술을 학습하려고 합니다.
-- DDD 아키텍처 설계
+I am undertaking this project to learn the following technologies:
+- DDD (Domain-Driven Design) architecture design
 - Clean Code
-- AWS
-- Mockito
-- 동시성 이슈 처리 (Redis) 
-- 사용하여 대용량 데이터 처리 (Spring Batch)
-- 대규모 트래픽 처리 (캐싱)
-- CI/CD (Jenkins 또는 Git Actions)
+- AWS (Amazon Web Services)
+- Mockito for unit testing
+- Handling concurrency issues using Redis
+- Processing large volumes of data with Spring Batch
+- Handling high traffic loads through caching
+- Implementing CI/CD (Continuous Integration/Continuous Deployment) with Jenkins or Git Actions
 
-프로젝트 주요 기능에 대한 작업을 [[ Issues ]](https://github.com/topyheun/topy/issues)에 정리하며 개발하고 있습니다. <br>
+The details of the project's main tasks are summarized in [[ Issues ]](https://github.com/topyheun/topy/issues).
 
 ## API Docs
-[[ API Docs ]](https://topys-organization.gitbook.io/topy-api-docs/)
+To gain a comprehensive understanding of the Topy's Marketplace API and its capabilities, please refer to our detailed API Documentation available at [[ API Docs ]](https://topys-organization.gitbook.io/topy-api-docs/). It provides comprehensive information about each endpoint, including request and response structures, facilitating seamless integration with our platform.
 
 ## API Test
 TODO
