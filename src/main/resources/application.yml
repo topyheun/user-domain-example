@@ -17,3 +17,9 @@ spring:
     hikari:
       connection-timeout: 5000
       max-lifetime: 30000
+
+# Jwt
+jwt:
+  header: Authorization
+  secret-key: 7Iqk7YOA67KF7Iqk7JeQ7IScIOyCrOydtOuTnO2UhOuhnOygne2KuCDtlZjripQg7KSR  # "스타벅스에서 사이드프로젝트 하는 중" convert to Base64
+  access-token-validity-time: 172800000 # 2d * 24h * 60min * 60s * 1000ms
