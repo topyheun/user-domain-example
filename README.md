@@ -12,9 +12,11 @@ I am undertaking this project to learn the following technologies:
 - Implementing CI/CD (Continuous Integration/Continuous Deployment) with Jenkins or Git Actions
 
 The details of the project's main tasks are summarized in [[ Issues ]](https://github.com/topyheun/topy/issues).
+<br><br>
 
 ## API Docs
 To gain a comprehensive understanding of the Topy's Marketplace API and its capabilities, please refer to our detailed API Documentation available at [[ API Docs ]](https://topys-organization.gitbook.io/topy-api-docs/). It provides comprehensive information about each endpoint, including request and response structures, facilitating seamless integration with our platform.
+<br><br>
 
 ## API Test
 TODO
