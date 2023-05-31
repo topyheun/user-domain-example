@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  database:
+    container_name: mariadb
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: topy_marketplace
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 0000
+      MYSQL_USER: topy
+      MYSQL_PASSWORD: topy
+      TZ: Asia/Seoul
+    ports:
+      - 3306:3306
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    networks:
+      - topy_network
+
+  redis:
+    container_name: redis_server
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    networks:
+      - topy_network
+
+  application:
+    container_name: topy_app
+    image: topy_local:v1.0
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://database:3306/topy_marketplace?characterEncoding=UTF-8&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: "topy"
+      SPRING_DATASOURCE_PASSWORD: "topy"
+    depends_on:
+      - database
+      - redis
+    networks:
+      - topy_network
+
+networks:
+  topy_network:
