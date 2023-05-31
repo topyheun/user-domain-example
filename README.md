@@ -4,7 +4,7 @@ The <U>**Topy's Marketplace**</U> is a trading platform where users can buy and 
 I am undertaking this project to learn the following technologies:
 - DDD (Domain-Driven Design) architecture design
 - Clean Code
-- AWS (Amazon Web Services)
+- AWS
 - Mockito for unit testing
 - Handling concurrency issues using Redis
 - Processing large volumes of data with Spring Batch
@@ -14,9 +14,10 @@ I am undertaking this project to learn the following technologies:
 The details of the project's main tasks are summarized in [[ Issues ]](https://github.com/topyheun/topy/issues).
 <br><br>
 
-## API Docs
+## API Documentation
 To gain a comprehensive understanding of the Topy's Marketplace API and its capabilities, please refer to our detailed API Documentation available at [[ API Docs ]](https://topys-organization.gitbook.io/topy-api-docs/). It provides comprehensive information about each endpoint, including request and response structures, facilitating seamless integration with our platform.
 <br><br>
 
-## API Test
-TODO
+## API Testing
+The project has been deployed on AWS, allowing for convenient testing of the project's APIs using 
+[[ Swagger ]](https://app.swaggerhub.com/apis-docs/topyheun/Topy_Marketplace/1.0.0).
