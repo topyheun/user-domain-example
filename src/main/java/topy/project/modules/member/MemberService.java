@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import topy.project.common.CommonService;
 import topy.project.common.exception.BadRequestException;
 import topy.project.infra.config.RedisUtil;
 import topy.project.infra.mail.EmailMessage;
@@ -26,6 +27,7 @@ public class MemberService {
     private final RedisUtil redisUtil;
     private final EmailTemplate emailTemplate;
     private final EmailService emailService;
+    private final CommonService commonService;
 
     @Transactional
     public void createMember(MemberSignUpRequest memberSignUpRequest) {
@@ -98,6 +100,8 @@ public class MemberService {
 
     @Transactional
     public void updateAccountPassword(String username, ChangeMemberPasswordRequest changeMemberPasswordRequest) {
+        commonService.checkWithdrawalAccount(username);
+
         Member member = memberRepository.findByUsername(username)
                 .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
 
@@ -110,6 +114,8 @@ public class MemberService {
 
     @Transactional
     public void disableAccount(String username, MemberWithdrawalRequest memberWithdrawalRequest) {
+        commonService.checkWithdrawalAccount(username);
+
         Member member = memberRepository.findByUsername(username)
                 .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
 

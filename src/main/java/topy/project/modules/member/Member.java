@@ -52,4 +52,8 @@ public class Member extends BaseTimeEntity {
     public void updateDisableAt() {
         this.disableAt = LocalDateTime.now();
     }
+
+    public boolean isWithdrawalAccount() {
+        return this.disableAt != null;
+    }
 }

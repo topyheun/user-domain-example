@@ -17,6 +17,7 @@ public class Const {
     public static final String MEMBER_NOT_FOUND_ACCOUNT = "계정을 찾을 수 없습니다.";
     public static final String MEMBER_EXPIRED_CODE_OR_INCORRECT_CODE = "만료 되었거나 일치하지 않는 인증 코드입니다.";
     public static final String MEMBER_INCORRECT_PASSWORD = "비밀번호가 일치하지 않습니다.";
+    public static final String MEMBER_WITHDRAWAL_ACCOUNT = "탈퇴한 회원입니다.";
 
     public static final String MEMBER_DTO_NO_USERNAME = "아이디를 입력해주세요.";
     public static final String MEMBER_DTO_NO_PASSWORD = "비밀번호를 입력해주세요.";
