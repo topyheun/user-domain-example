@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import topy.project.common.CommonService;
 import topy.project.common.exception.BadRequestException;
 import topy.project.infra.config.RedisUtil;
+import topy.project.infra.config.security.auth.AuthUtils;
 import topy.project.infra.mail.EmailMessage;
 import topy.project.infra.mail.EmailService;
 import topy.project.infra.mail.EmailTemplate;
@@ -101,6 +102,7 @@ public class MemberService {
     @Transactional
     public void updateAccountPassword(String username, ChangeMemberPasswordRequest changeMemberPasswordRequest) {
         commonService.checkWithdrawalAccount(username);
+        AuthUtils.checkJwtToken(username);
 
         Member member = memberRepository.findByUsername(username)
                 .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
@@ -115,6 +117,7 @@ public class MemberService {
     @Transactional
     public void disableAccount(String username, MemberWithdrawalRequest memberWithdrawalRequest) {
         commonService.checkWithdrawalAccount(username);
+        AuthUtils.checkJwtToken(username);
 
         Member member = memberRepository.findByUsername(username)
                 .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
