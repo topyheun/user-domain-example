@@ -16,12 +16,15 @@ public class Const {
     public static final String MEMBER_INVALID_EMAIL_FORMAT = "올바르지 않은 이메일 양식입니다.";
     public static final String MEMBER_NOT_FOUND_ACCOUNT = "계정을 찾을 수 없습니다.";
     public static final String MEMBER_EXPIRED_CODE_OR_INCORRECT_CODE = "만료 되었거나 일치하지 않는 인증 코드입니다.";
+    public static final String MEMBER_INCORRECT_PASSWORD = "비밀번호가 일치하지 않습니다.";
 
     public static final String MEMBER_DTO_NO_USERNAME = "아이디를 입력해주세요.";
     public static final String MEMBER_DTO_NO_PASSWORD = "비밀번호를 입력해주세요.";
     public static final String MEMBER_DTO_NO_CONTACT = "연락처를 입력해주세요.";
     public static final String MEMBER_DTO_WRONG_PASSWORD_RULE = "숫자, 대문자, 소문자, 특수문자를 포함하여 8 ~ 20자리의 비밀번호를 입력해주세요.";
     public static final String MEMBER_DTO_NO_RECEIVER = "수신받을 이메일을 입력해주세요.";
+    public static final String MEMBER_DTO_NO_CURRENT_PASSWORD = "현재 비밀번호를 입력해주세요.";
+    public static final String MEMBER_DTO_NO_NEW_PASSWORD = "변경할 비밀번호를 입력해주세요.";
 
     public static final String JWT_UNAUTHENTICATED_USER = "접근 권한이 없습니다.";
     public static final String JWT_WITHOUT_ACCESS = "인증되지 않은 사용자입니다.";

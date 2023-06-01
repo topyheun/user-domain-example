@@ -95,4 +95,20 @@ public class MemberService {
         member.updatePassword(passwordEncoder.encode(authKey));
         emailService.send(emailMessage);
     }
+
+    @Transactional
+    public void updateAccountPassword(String username, ChangeMemberPasswordRequest changeMemberPasswordRequest) {
+        Member member = memberRepository.findByUsername(username)
+                .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
+
+        if (isPasswordMatches(changeMemberPasswordRequest.getCurrentPassword(), member.getPassword())) {
+            member.updatePassword(passwordEncoder.encode(changeMemberPasswordRequest.getNewPassword()));
+        } else {
+            throw new BadRequestException(MEMBER_INCORRECT_PASSWORD);
+        }
+    }
+
+    private boolean isPasswordMatches(String inputPassword, String currentPassword) {
+        return passwordEncoder.matches(inputPassword, currentPassword);
+    }
 }

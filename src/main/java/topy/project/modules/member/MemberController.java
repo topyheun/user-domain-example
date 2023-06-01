@@ -85,4 +85,11 @@ public class MemberController {
         memberService.sendNewMemberPassword(searchMemberPasswordRequest);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
     }
+
+    @PatchMapping("/members/{username}/password")
+    public ResultResponse modifyMemberPassword(@PathVariable String username,
+                                                @RequestBody @Valid ChangeMemberPasswordRequest changeMemberPasswordRequest) {
+        memberService.updateAccountPassword(username, changeMemberPasswordRequest);
+        return ResultResponse.result(SUCCESS, SUCCESS_MSG);
+    }
 }
