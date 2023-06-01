@@ -10,10 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import topy.project.common.dto.ResultResponse;
 import topy.project.infra.config.security.jwt.JwtTokenProvider;
-import topy.project.modules.member.dto.MemberEmailVerificationRequest;
-import topy.project.modules.member.dto.MemberSignInRequest;
-import topy.project.modules.member.dto.MemberSignInResponse;
-import topy.project.modules.member.dto.MemberSignUpRequest;
+import topy.project.modules.member.dto.*;
 import topy.project.modules.member.validator.MemberEmailVerificationValidator;
 import topy.project.modules.member.validator.MemberSignUpValidator;
 
@@ -75,5 +72,11 @@ public class MemberController {
     public ResultResponse verifyCode(@RequestParam String code) {
         memberService.verifyCode(code);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
+    }
+
+    @GetMapping("/members/username")
+    public ResultResponse searchAccountUsername(@Valid SearchMemberUsernameRequest searchMemberUsernameRequest) {
+        MemberResponse memberResponse = memberService.getAccountUsername(searchMemberUsernameRequest);
+        return ResultResponse.result(SUCCESS, SUCCESS_MSG, memberResponse);
     }
 }

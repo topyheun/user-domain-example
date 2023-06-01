@@ -10,12 +10,13 @@ import topy.project.infra.mail.EmailMessage;
 import topy.project.infra.mail.EmailService;
 import topy.project.infra.mail.EmailTemplate;
 import topy.project.modules.member.dto.MemberEmailVerificationRequest;
+import topy.project.modules.member.dto.MemberResponse;
 import topy.project.modules.member.dto.MemberSignUpRequest;
+import topy.project.modules.member.dto.SearchMemberUsernameRequest;
 
 import java.util.UUID;
 
-import static topy.project.common.Const.MEMBER_EXPIRED_CODE_OR_INCORRECT_CODE;
-import static topy.project.common.Const.MEMBER_USED_ACCOUNT;
+import static topy.project.common.Const.*;
 import static topy.project.infra.mail.EmailConst.EMAIL_SEND_AUTH_CODE_MESSAGE;
 import static topy.project.infra.mail.EmailConst.EMAIL_VERIFICATION_EXPIRATION_TIME;
 
@@ -70,5 +71,14 @@ public class MemberService {
 
     private String getEmailByVerificationCode(String code) {
         return redisUtil.getData(code);
+    }
+
+    public MemberResponse getAccountUsername(SearchMemberUsernameRequest searchMemberUsernameRequest) {
+        Member member = memberRepository.findByContact(searchMemberUsernameRequest.getContact())
+                .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
+
+        return MemberResponse.builder()
+                .username(member.getUsername())
+                .build();
     }
 }
