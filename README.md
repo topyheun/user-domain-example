@@ -1,17 +1,15 @@
 ## Introduction
-The <U>**Topy's Marketplace**</U> is a trading platform where users can buy and sell goods.
-
-I am undertaking this project to learn the following technologies:
-- DDD (Domain-Driven Design) architecture design
-- Clean Code
-- AWS
-- Mockito for unit testing
-- Handling concurrency issues using Redis
-- Processing large volumes of data with Spring Batch
-- Handling high traffic loads through caching
-- Implementing CI/CD (Continuous Integration/Continuous Deployment) with Jenkins or Git Actions
+The <U>**Topy's User Domain**</U> is a web application that implements the user domain using Spring Security and JWT. It has been deployed on AWS using Docker.
 
 The details of the project's main tasks are summarized in [[ Issues ]](https://github.com/topyheun/topy/issues).
+<br><br>
+
+## Stack 
+Spring Boot 3.1<br>
+Spring Security, JWT<br>
+MariaDB, JPA<br>
+Redis<br>
+Docker, AWS
 <br><br>
 
 ## API Documentation
@@ -21,3 +19,4 @@ To gain a comprehensive understanding of the Topy's Marketplace API and its capa
 ## API Testing
 The project has been deployed on AWS, allowing for convenient testing of the project's APIs using 
 [[ Swagger ]](https://app.swaggerhub.com/apis-docs/topyheun/Topy_Marketplace/1.0.0).
+<br><br>
