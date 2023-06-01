@@ -15,7 +15,7 @@ The details of the project's main tasks are summarized in [[ Issues ]](https://g
 <br><br>
 
 ## API Documentation
-To gain a comprehensive understanding of the Topy's Marketplace API and its capabilities, please refer to our detailed API Documentation available at [[ API Docs ]](https://topys-organization.gitbook.io/topy-api-docs/). It provides comprehensive information about each endpoint, including request and response structures, facilitating seamless integration with our platform.
+To gain a comprehensive understanding of the Topy's Marketplace API and its capabilities, please refer to our detailed API Documentation available at [[ Git Book ]](https://topys-organization.gitbook.io/topy-api-docs/). It provides comprehensive information about each endpoint, including request and response structures, facilitating seamless integration with our platform.
 <br><br>
 
 ## API Testing
