@@ -9,16 +9,12 @@ import topy.project.infra.config.RedisUtil;
 import topy.project.infra.mail.EmailMessage;
 import topy.project.infra.mail.EmailService;
 import topy.project.infra.mail.EmailTemplate;
-import topy.project.modules.member.dto.MemberEmailVerificationRequest;
-import topy.project.modules.member.dto.MemberResponse;
-import topy.project.modules.member.dto.MemberSignUpRequest;
-import topy.project.modules.member.dto.SearchMemberUsernameRequest;
+import topy.project.modules.member.dto.*;
 
 import java.util.UUID;
 
 import static topy.project.common.Const.*;
-import static topy.project.infra.mail.EmailConst.EMAIL_SEND_AUTH_CODE_MESSAGE;
-import static topy.project.infra.mail.EmailConst.EMAIL_VERIFICATION_EXPIRATION_TIME;
+import static topy.project.infra.mail.EmailConst.*;
 
 @Service
 @Transactional(readOnly = true)
@@ -80,5 +76,23 @@ public class MemberService {
         return MemberResponse.builder()
                 .username(member.getUsername())
                 .build();
+    }
+
+    @Transactional
+    public void sendNewMemberPassword(SearchMemberPasswordRequest searchMemberPasswordRequest) {
+        Member member = memberRepository.findByUsernameAndContact(
+                        searchMemberPasswordRequest.getUsername(),
+                        searchMemberPasswordRequest.getContact()
+                )
+                .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
+
+        String authKey = createAuthKey();
+        EmailMessage emailMessage = EmailMessage.builder()
+                .to(searchMemberPasswordRequest.getUsername())
+                .subject(EMAIL_SEND_TEMPORARY_PASSWORD)
+                .message(emailTemplate.reissuePasswordMailTemplate(authKey))
+                .build();
+        member.updatePassword(passwordEncoder.encode(authKey));
+        emailService.send(emailMessage);
     }
 }

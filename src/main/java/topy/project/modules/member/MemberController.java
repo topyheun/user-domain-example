@@ -79,4 +79,10 @@ public class MemberController {
         MemberResponse memberResponse = memberService.getAccountUsername(searchMemberUsernameRequest);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG, memberResponse);
     }
+
+    @GetMapping("/members/password")
+    public ResultResponse searchAccountPassword(@Valid SearchMemberPasswordRequest searchMemberPasswordRequest) {
+        memberService.sendNewMemberPassword(searchMemberPasswordRequest);
+        return ResultResponse.result(SUCCESS, SUCCESS_MSG);
+    }
 }

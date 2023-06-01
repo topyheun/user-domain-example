@@ -13,4 +13,14 @@ public class EmailTemplate {
                 + "</body></html>";
         return content;
     }
+
+    public String reissuePasswordMailTemplate(String authKey) {
+        String content = ""
+                + "<html><body>"
+                + "<h2>[Topy's Marketplace] - Guide to Sending Temporary Password</h2>"
+                + "<br>"
+                + "<p><span style='color:red;font-size:23px;font-weight:bold;'>" + authKey + "</span></p>"
+                + "</body></html>";
+        return content;
+    }
 }

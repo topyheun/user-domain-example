@@ -66,6 +66,7 @@ public class SecurityConfig {
             "/v1/members/sign-up",
             "/v1/members/verify/mail",
             "/v1/members/verify",
-            "/v1/members/username"
+            "/v1/members/username",
+            "/v1/members/password"
     };
 }
