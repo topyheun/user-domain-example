@@ -22,14 +22,18 @@ public class Member extends BaseTimeEntity {
     @Column(name = "member_password")
     private String password;
 
+    @Column(name = "member_contact")
+    private String contact;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "member_type")
     private MemberType memberType;
 
     @Builder
-    public Member(String username, String password) {
+    public Member(String username, String password, String contact) {
         this.username = username;
         this.password = password;
+        this.contact = contact;
     }
 
     public void setEncodePassword(String hashPassword) {

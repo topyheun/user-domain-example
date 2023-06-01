@@ -19,6 +19,7 @@ public class Const {
 
     public static final String MEMBER_DTO_NO_USERNAME = "아이디를 입력해주세요.";
     public static final String MEMBER_DTO_NO_PASSWORD = "비밀번호를 입력해주세요.";
+    public static final String MEMBER_DTO_NO_CONTACT = "연락처를 입력해주세요.";
     public static final String MEMBER_DTO_WRONG_PASSWORD_RULE = "숫자, 대문자, 소문자, 특수문자를 포함하여 8 ~ 20자리의 비밀번호를 입력해주세요.";
     public static final String MEMBER_DTO_NO_RECEIVER = "수신받을 이메일을 입력해주세요.";
 
