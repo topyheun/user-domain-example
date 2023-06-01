@@ -41,13 +41,13 @@ public class MemberController {
         webDataBinder.addValidators(memberEmailVerificationValidator);
     }
 
-    @PostMapping("/member/sign-up")
+    @PostMapping("/members/sign-up")
     public ResultResponse signUp(@RequestBody @Valid MemberSignUpRequest memberSignUpRequest) {
         memberService.createMember(memberSignUpRequest);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
     }
 
-    @PostMapping("/member/sign-in")
+    @PostMapping("/members/sign-in")
     public ResultResponse signIn(@RequestBody @Valid MemberSignInRequest memberSignInRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -58,20 +58,20 @@ public class MemberController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwtToken = jwtTokenProvider.createToken(authentication);
-         MemberSignInResponse memberSignInResponse = MemberSignInResponse.builder()
+        MemberSignInResponse memberSignInResponse = MemberSignInResponse.builder()
                 .username(memberSignInRequest.getUsername())
                 .jwtToken(jwtToken)
                 .build();
         return ResultResponse.result(SUCCESS, SUCCESS_MSG, memberSignInResponse);
     }
 
-    @PostMapping("/member/verify/mail")
+    @PostMapping("/members/verify/mail")
     public ResultResponse sendSignUpVerification(@RequestBody @Valid MemberEmailVerificationRequest memberEmailVerificationRequest) {
         memberService.sendVerificationCode(memberEmailVerificationRequest);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
     }
 
-    @GetMapping("/member/verify")
+    @GetMapping("/members/verify")
     public ResultResponse verifyCode(@RequestParam String code) {
         memberService.verifyCode(code);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
