@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import topy.project.common.BaseTimeEntity;
 
+import java.time.LocalDateTime;
+
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -25,6 +27,9 @@ public class Member extends BaseTimeEntity {
     @Column(name = "member_contact")
     private String contact;
 
+    @Column(name = "delete_at")
+    private LocalDateTime disableAt;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "member_type")
     private MemberType memberType;
@@ -42,5 +47,9 @@ public class Member extends BaseTimeEntity {
 
     public void updatePassword(String password) {
         this.password = password;
+    }
+
+    public void updateDisableAt() {
+        this.disableAt = LocalDateTime.now();
     }
 }

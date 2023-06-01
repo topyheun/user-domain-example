@@ -92,4 +92,11 @@ public class MemberController {
         memberService.updateAccountPassword(username, changeMemberPasswordRequest);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
     }
+
+    @PatchMapping("/members/{username}/withdrawal")
+    public ResultResponse withdrawalAccount(@PathVariable String username,
+                                            @RequestBody @Valid MemberWithdrawalRequest memberWithdrawalRequest) {
+        memberService.disableAccount(username, memberWithdrawalRequest);
+        return ResultResponse.result(SUCCESS, SUCCESS_MSG);
+    }
 }

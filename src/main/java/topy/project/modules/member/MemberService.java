@@ -108,6 +108,18 @@ public class MemberService {
         }
     }
 
+    @Transactional
+    public void disableAccount(String username, MemberWithdrawalRequest memberWithdrawalRequest) {
+        Member member = memberRepository.findByUsername(username)
+                .orElseThrow(() -> new BadRequestException(MEMBER_NOT_FOUND_ACCOUNT));
+
+        if (isPasswordMatches(memberWithdrawalRequest.getPassword(), member.getPassword())) {
+            member.updateDisableAt();
+        } else {
+            throw new BadRequestException(MEMBER_INCORRECT_PASSWORD);
+        }
+    }
+
     private boolean isPasswordMatches(String inputPassword, String currentPassword) {
         return passwordEncoder.matches(inputPassword, currentPassword);
     }
