@@ -18,5 +18,5 @@ To gain a comprehensive understanding of the Topy's Marketplace API and its capa
 
 ## API Testing
 The project has been deployed on AWS, allowing for convenient testing of the project's APIs using 
-[[ Swagger ]](https://app.swaggerhub.com/apis-docs/topyheun/Topy_Marketplace/1.0.0).
+[[ Swagger ]](https://app.swaggerhub.com/apis-docs/topyheun/Topy_User_Domain/1.0.0).
 <br><br>
