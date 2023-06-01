@@ -64,6 +64,7 @@ public class SecurityConfig {
     private final String[] WHITE_LIST = {
             "/v1/member/sign-in",
             "/v1/member/sign-up",
-            "/v1/member/verify/mail"
+            "/v1/member/verify/mail",
+            "/v1/member/verify"
     };
 }

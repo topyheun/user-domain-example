@@ -70,4 +70,10 @@ public class MemberController {
         memberService.sendVerificationCode(memberEmailVerificationRequest);
         return ResultResponse.result(SUCCESS, SUCCESS_MSG);
     }
+
+    @GetMapping("/member/verify")
+    public ResultResponse verifyCode(@RequestParam String code) {
+        memberService.verifyCode(code);
+        return ResultResponse.result(SUCCESS, SUCCESS_MSG);
+    }
 }

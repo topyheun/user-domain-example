@@ -14,6 +14,7 @@ import topy.project.modules.member.dto.MemberSignUpRequest;
 
 import java.util.UUID;
 
+import static topy.project.common.Const.MEMBER_EXPIRED_CODE_OR_INCORRECT_CODE;
 import static topy.project.common.Const.MEMBER_USED_ACCOUNT;
 import static topy.project.infra.mail.EmailConst.EMAIL_SEND_AUTH_CODE_MESSAGE;
 import static topy.project.infra.mail.EmailConst.EMAIL_VERIFICATION_EXPIRATION_TIME;
@@ -57,5 +58,16 @@ public class MemberService {
     private String createAuthKey() {
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         return uuid.substring(0, 8);
+    }
+
+    public void verifyCode(String code) {
+        String email = getEmailByVerificationCode(code);
+        if (email == null) {
+            throw new BadRequestException(MEMBER_EXPIRED_CODE_OR_INCORRECT_CODE);
+        }
+    }
+
+    private String getEmailByVerificationCode(String code) {
+        return redisUtil.getData(code);
     }
 }
