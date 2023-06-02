@@ -10,8 +10,7 @@ import topy.project.modules.member.dto.MemberSignUpRequest;
 
 import java.util.regex.Pattern;
 
-import static topy.project.common.Const.MEMBER_INVALID_EMAIL_FORMAT;
-import static topy.project.common.Const.MEMBER_USED_ACCOUNT;
+import static topy.project.common.Const.*;
 
 @Component
 @RequiredArgsConstructor
@@ -36,6 +35,10 @@ public class MemberSignUpValidator implements Validator {
 
         if (memberRepository.existsByUsername(memberSignUpRequest.getUsername())) {
             throw new BadRequestException(MEMBER_USED_ACCOUNT);
+        }
+
+        if (memberRepository.existsByContact(memberSignUpRequest.getContact())) {
+            throw new BadRequestException(MEMBER_USED_CONTACT);
         }
     }
 }

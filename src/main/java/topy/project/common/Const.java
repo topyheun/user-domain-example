@@ -13,6 +13,7 @@ public class Const {
      * Domain을 접두사로 사용
      */
     public static final String MEMBER_USED_ACCOUNT = "사용중인 계정입니다.";
+    public static final String MEMBER_USED_CONTACT = "해당 연락처로 가입된 계정이 있습니다.";
     public static final String MEMBER_INVALID_EMAIL_FORMAT = "올바르지 않은 이메일 양식입니다.";
     public static final String MEMBER_NOT_FOUND_ACCOUNT = "계정을 찾을 수 없습니다.";
     public static final String MEMBER_EXPIRED_CODE_OR_INCORRECT_CODE = "만료 되었거나 일치하지 않는 인증 코드입니다.";

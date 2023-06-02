@@ -17,4 +17,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Optional<Member> findByContact(String contact);
 
     Optional<Member> findByUsernameAndContact(String username, String contact);
+
+    boolean existsByContact(String contact);
 }
