@@ -1,7 +1,5 @@
 ## Introduction
-The **(Topy's User Management)** is a web application that implements the user domain using Spring Security and JWT. It has been deployed on AWS using Docker.
-
-The details of the project's main tasks are summarized in [[ Issues ]](https://github.com/topyheun/topy/issues).
+The **Topy's User Management** is a web application that implements the user domain using <ins>Spring Security</ins> and <ins>JWT</ins>. It has been deployed on <ins>AWS</ins> using <ins>Docker</ins>.
 <br><br>
 
 ## Stack 
